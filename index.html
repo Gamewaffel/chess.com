@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChessMaster — Spiele gegen KI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-noise"></div>
 
+  <!-- HEADER -->
+  <header>
+    <div class="logo">♟ ChessMaster</div>
+    <nav>
+      <a href="#play">Spielen</a>
+      <a href="#about">Über uns</a>
+      <a href="https://github.com/DEIN-USERNAME/chess-website" target="_blank" class="btn-github">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="play">
+    <div class="hero-text">
+      <h1>Schach.<br/><span class="accent">Neu gedacht.</span></h1>
+      <p>Spiele gegen einen Bot auf Stockfish-Niveau — direkt im Browser, ohne Installation.</p>
+      <div class="difficulty-selector">
+        <span>Schwierigkeit:</span>
+        <button class="diff-btn active" data-depth="2">Anfänger</button>
+        <button class="diff-btn" data-depth="8">Mittel</button>
+        <button class="diff-btn" data-depth="15">Experte</button>
+        <button class="diff-btn" data-depth="20">Stockfish</button>
+      </div>
+      <button id="new-game-btn" class="btn-primary">Neues Spiel</button>
+    </div>
+
+    <!-- CHESS BOARD -->
+    <div class="board-wrapper">
+      <div class="board-labels-left" id="rank-labels"></div>
+      <div class="board-container">
+        <div id="chessboard"></div>
+      </div>
+      <div class="board-labels-bottom" id="file-labels"></div>
+    </div>
+  </section>
+
+  <!-- STATUS BAR -->
+  <div class="status-bar">
+    <div id="status-msg">Dein Zug — Weiß beginnt</div>
+    <div class="captured" id="captured-display"></div>
+  </div>
+
+  <!-- MOVE HISTORY -->
+  <div class="move-history-panel">
+    <h3>Zughistorie</h3>
+    <div id="move-list"></div>
+  </div>
+
+  <!-- PROMOTION MODAL -->
+  <div id="promo-modal" class="modal hidden">
+    <div class="modal-box">
+      <h3>Bauernumwandlung</h3>
+      <div class="promo-pieces">
+        <button data-piece="q">♛</button>
+        <button data-piece="r">♜</button>
+        <button data-piece="b">♝</button>
+        <button data-piece="n">♞</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="about-section">
+    <h2>Wie funktioniert das?</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Stockfish Engine</h3>
+        <p>Die weltstärkste Open-Source Schach-KI läuft direkt im Browser via WebAssembly — kein Server nötig.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📦</div>
+        <h3>Open Source</h3>
+        <p>Gesamter Code ist auf GitHub verfügbar. Fork, verbessere und deploye deine eigene Version.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎨</div>
+        <h3>Modern Design</h3>
+        <p>Gebaut mit HTML, CSS und Vanilla JS — keine Frameworks, schnell und elegant.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Open Source auf <a href="https://github.com/DEIN-USERNAME/chess-website" target="_blank">GitHub</a> · MIT Lizenz</p>
+  </footer>
+
+  <!-- CHESS LOGIC LIBRARIES (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
