@@ -7,7 +7,7 @@ direkt im Browser spielbar. Design ähnlich wie chess.com, vollständig open sou
 
 ## 🚀 Live Demo
 
-👉 [https://DEIN-USERNAME.github.io/chess-website](https://DEIN-USERNAME.github.io/chess-website)
+👉 [https://gamewaffel.github.io/chess.com](https://gamewaffel.github.io/chess.com)
 
 ---
 
